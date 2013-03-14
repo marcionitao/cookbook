@@ -16,8 +16,10 @@ public class RecipeController {
     public String listRecipes(Model model) {
 
         List<String> values = new ArrayList<String>();
-        values.add("Ola");
-        values.add("Mundo");        
+        values.add("1º item");
+        values.add("2º item");   
+        values.add("3º item");
+        values.add("4º item");  
         model.addAttribute("items", values);
         
         return "listRecipes";
@@ -27,10 +29,18 @@ public class RecipeController {
     public String showRecipe(Model model, @PathVariable String id) {
 
         List<String> values = new ArrayList<String>();
-        values.add("Ola"+id);
-        values.add("Mundo"+id);        
+        
+         id = "4";
+        values.add("1º item"+id);
+        values.add("2º item"+id);   
+        values.add("3º item"+id);
+        values.add("4º item"+id);  
+        
+     
+            
         model.addAttribute("items", values);
-        if(id.equals("42")) {
+        
+        if(id.equals("4")) {
         	return "detailedRecipe";
 		} else {
 			return "recipeNotFound";

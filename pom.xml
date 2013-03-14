@@ -17,6 +17,7 @@
 	    <version.org.springframework.spring.context>3.2.1.RELEASE</version.org.springframework.spring.context>
 	    <version.org.springframework.spring.web>3.2.1.RELEASE</version.org.springframework.spring.web>
 	    <version.javax.servlet.jstl>1.2</version.javax.servlet.jstl>
+	 <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
 	</properties>
 
 	<build>
