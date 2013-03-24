@@ -1,27 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!-- Package base em que se deve procurar controladores -->
-	<context:component-scan base-package="pt.ulht.es.cookbook.controller" />
+  
+    
+      <!--Activa o uso de Annotation-->	
+    <context:annotation-config />   
+    <!--Define o pacote que estamos trabalhar-->	
+    <context:component-scan base-package="pt.ulht.es.cookbook.controller"/>
+      
+    <!-- Serve pedidos HTTP GET para /static/** de forma eficiente para recursos estáticos na pasta webapp/resources -->
+    <mvc:resources mapping="/resources/**" location="/resources/" /> 
+		
+     <!--propertyConfigurer bean - Este bean é usado para carregar jdbc.properties 
+     banco de dados de arquivos de propriedade. Os detalhes de conexão de banco 
+     de dados são armazenados neste arquivo que é usado em configurações de conexão de hibernação.-->
+     
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
 
-	<!-- Queremos ligar a anotação @Controller para definir controladores -->
-	<mvc:annotation-driven />
+    <!--dataSource bean - Esta é a fonte de dados usada java para conectar-se em 
+    contato com banco de dados gerente. Nós fornecemos driver JDBC classe, nome 
+    de usuário, etc senha, na configuração.-->
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.databaseurl}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
 	
-	<!-- Serve pedidos HTTP GET para /static/** de forma eficiente para recursos estáticos na pasta webapp/resources -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
-
-	<!-- Resolve vistas seleccionadas para renderização pelos @Controllers para páginas .jsp na pasta webapp/views -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:order="1">
-		<beans:property name="prefix" value="/WEB-INF/jsp/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-
-</beans:beans> 
+    <!--
+    sessionFactory bean - Este é o Hibernate configuração onde podemos definir 
+    diferentes configurações de hibernação. hibernate.cfg.xml é definir um arquivo 
+    de configuração que contém mapeamentos de classe de entidade   
+    -->
+    
+    <bean id="sessionFactory"
+   
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!--
+        viewResolver bean - Este bean definido ver resolvedor para Spring MVC. 
+        Para este bean também definir prefixo como "/ WEB-INF/jsp /" eo sufixo 
+        como ". Jsp". Assim primavera resolve automaticamente o JSP de WEB-INF/jsp 
+        pasta e sufixo atribuído. Jsp para ele.
+    -->
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <!--Activa o uso de Annotation-->
+    <mvc:annotation-driven />
+  
+  <!--transactionManager bean - Usamos hibernate gerenciador de transações para 
+    gerenciar as transações de nosso aplicativo gerenciador de studantes.-->
+    
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>	
+</beans>
