@@ -11,11 +11,11 @@ import pt.ulht.es.cookbook.model.Receita;
 
 public interface ReceitaService {
 
-    public void add(Receita receita);
+    public void addReceita(Receita receita);
 
-    public void edit(Receita receita);
+    public void editReceita(Receita receita);
 
-    public void delete(int id);
+    public void deleteReceita(int id);
 
     // public Receita getReceita(String titulo);//no futuro usar como pesquisa
     public Receita getReceita(int id);//no futuro usar como pesquisa

@@ -7,10 +7,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/mystyle.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap-responsive.css"/>"/>
+        <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>
+        <%@include file="/WEB-INF/jsp/common/libs.jsp" %>
 
         <title>CookBook</title>
     </head>
@@ -26,11 +24,9 @@
                         </form></li>
                 </ul>
                 <h3 class="muted">My CookBook</h3>
-                <ul class="nav nav-pills pull-left">
-                    <li><a href="/">Home</a></li>
-                    <li class="active"><a href="#">Criar Receita</a></li>
-                    <li><a href="recipes.html">Listar Receitas</a></li>
-                </ul>
+                
+                 <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
+                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
                 
             </div> 
              <%--fim do cabeçalho--%>
@@ -41,45 +37,44 @@
             <br>
 
             <%--inicio do formulario--%>
-            <form class="form-horizontal" method="POST" action="adicionaReceita" commandName="receita">  
-                <fieldset>  
-                    <legend>Criar nova Receita</legend>  
 
-                    <div class="control-group">  
-                        <label class="control-label" for="input01">Título</label>  
-                        <div class="controls">  
-                            <input path= "titulo" type="text" class="input-xlarge" id="input01">              
-                        </div>  
-                    </div>    
+            <legend>Criar nova Receita</legend>  
+            <form:form action="novaReceita.do" method="POST" commandName="receita">
+                <table width=80% >
 
-                    <div class="control-group">  
-                        <label class="control-label" for="input02">Descrição do problema</label>  
-                        <div class="controls">  
-                            <input path= "desc_prob" type="text" class="input-xlarge" id="input02">              
-                        </div>  
-                    </div>    
+                    <tr>
+                        <td><strong>Titulo da Receita </strong></td>
+                        <td><form:input path="titulo" class="input-xlarge"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>escrição do problema</strong></td>
+                        <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" /></td>
+                    </tr>
+                    <tr>
 
-                    <div class="control-group">  
-                        <label class="control-label" for="input03">Descrição da solução</label>  
-                        <div class="controls">  
-                            <textarea path= "desc_soluc" class="input-xlarge" id="input03" rows="6"></textarea>  
-                        </div>  
-                    </div>  
+                        <td><strong>Descrição da solução</strong></td>
+                        <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" /></td>
 
-                    <div class="control-group">  
-                        <label class="control-label" for="input04">Autor</label>  
-                        <div class="controls">  
-                            <input path= "autor" type="text" class="input-xlarge" id="input04">              
-                        </div>  
-                    </div>   
+                    </tr>
+                    <tr>
+                        <td><strong>Autor da Receita </strong></td>
+                        <td><form:input path="autor" class="input-xlarge"/></td>
+                    </tr>    
 
-                    <div class="form-actions">  
-                        <button type="submit" name="action" class="btn nav-pills pull" value="add">Guardar</button>  
-                        <button class="btn nav-pills pull" name="action_2" value="cancel">Cancelar</button>  
-                    </div>  
-                </fieldset>  
-            </form>  
-             <%--fim do formulario--%>
+                    <tr>
+                        <td>
+                        <td>
+                            <!--parte refernte aos botões -->                
+                            <button type="submit" name="action" class="btn nav-pills pull" value="add">Guardar</button>  
+                            <button type="reset" name="action" class="btn nav-pills pull" value="cancel">Cancelar</button>  
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </form:form>
+
 
         </div>
     </body>

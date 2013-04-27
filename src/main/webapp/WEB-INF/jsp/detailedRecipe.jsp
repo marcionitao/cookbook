@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -34,11 +36,32 @@
     </div>
     <%--fim  do cabeçalho--%>
       
-<ul>
-<c:forEach var="item" items='${items}'>
-	<li><c:out value="${item}"></c:out></li>
-</c:forEach>
-</ul>      
+    
+    <%--Inicio da Listagem --%>
+    
+         <br>
+          <legend>Listar Receitas</legend>  
+        <table border="1">
+            <th>ID</th>
+            <th>Titulo da Receita</th>
+            <th>Descrição do problema</th>
+            <th>Descrição da solução</th>
+            <th>Autor</th>
+            <th>Data da criação</th>
+
+            <!--parte refernte a listagem-->
+            <c:forEach items="${receitaList}" var="receita">
+                <tr>
+                    <td>${receita.id}</td>
+                    <td>${receita.titulo}</td>
+                    <td>${receita.desc_prob}</td>
+                    <td>${receita.desc_soluc}</td>
+                    <td>${receita.autor}</td>
+                    <td>${receita.rec_criada}</td>
+                </tr>
+            </c:forEach>
+        </table>
+      
       
 </body>
 </html>

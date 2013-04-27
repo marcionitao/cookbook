@@ -6,14 +6,16 @@
 package pt.ulht.es.cookbook.service;
 
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 //importar as classes das camadas inferiores
 import pt.ulht.es.cookbook.model.Receita;
 import pt.ulht.es.cookbook.dao.ReceitaDao;
-import pt.ulht.es.cookbook.service.ReceitaService;
 
 @Service
 public class ReceitaServiceImpl implements ReceitaService{
@@ -22,18 +24,18 @@ public class ReceitaServiceImpl implements ReceitaService{
     private ReceitaDao receitaDao;
 
     @Transactional
-    public void add(Receita receita) {
-       receitaDao.add(receita);
+    public void addReceita(Receita receita) {
+       receitaDao.addReceita(receita);
     }
 
     @Transactional
-    public void edit(Receita receita) {
-         receitaDao.edit(receita);
+    public void editReceita(Receita receita) {
+         receitaDao.editReceita(receita);
     }
 
     @Transactional
-    public void delete(int id) {
-         receitaDao.delete(id);
+    public void deleteReceita(int id) {
+         receitaDao.deleteReceita(id);
     }
 
     @Transactional

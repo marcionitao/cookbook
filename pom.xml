@@ -117,6 +117,7 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.3.1.GA</version>
         </dependency>
+       
          
          <!-- MySQL -->
         <dependency>

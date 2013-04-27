@@ -6,9 +6,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/mystyle.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap-responsive.css"/>"/>
+        <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>     
+        <%@include file="/WEB-INF/jsp/common/libs.jsp" %>     
 
         <title>CookBook</title>
     </head>
@@ -24,11 +23,9 @@
                         </form></li>
                 </ul>
                 <h3 class="muted">My CookBook</h3>
-                <ul class="nav nav-pills pull-left">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="novaReceita.html">Criar Receita</a></li>
-                    <li><a href="recipes.html">Listar Receitas</a></li>
-                </ul>
+                
+                <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
+                <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
 
             </div>
              <%--fim do cabeçalho--%>

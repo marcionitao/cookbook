@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/mystyle.css"/>"/>
-        <link rel="stylesheet" href="<c:url value="resources/css/bootstrap-responsive.css"/>"/>
+        
+        <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>
+       <%@include file="/WEB-INF/jsp/common/libs.jsp" %>
 
         <title>CookBook</title>
     </head>
@@ -22,13 +22,12 @@
                         </form></li>
                 </ul>
                 <h3 class="muted">My CookBook</h3>
-                <ul class="nav nav-pills pull-left">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="criar.html">Criar Receita</a></li>
-                    <li class="active"><a href="#">Listar Receitas</a></li>
-                </ul>                     
+                 
+                <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
+                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>      
+                 
             </div> 
-        </div>
+       
          <%--fim  do cabeçalho--%>
 
         <br>
@@ -37,27 +36,32 @@
         <br>
        
          <%--inicio da lista de itens--%>
-        <div class="container">
-            <div class="row" >
-                <div class="span4">
-                   <legend>Criar nova Receita</legend>  
-                    <div class="container-fluid">
-                        <div class="row-fluid">
-                            <div class="span6">
-                                <ul>
-                                    <c:forEach var="item" items='${items}'>
-                                        <li><a href="/recipes/{id}.html"><c:out value="${item}"></c:out></a></li>
-                                    </c:forEach>
-                                </ul>
-                            </div>
+      <%--Inicio da Listagem --%>
 
-                        </div>
-                    </div>
-                </div>
+      <legend>Listar Receitas</legend>  
+      <table width=80% height=20%>
+          <tr>
+          <thead>
 
-            </div>
+          <td><strong>Id</strong></td>
+          <td><strong>Titulo da Receita</strong></td>
+          </thead>
+
+          </tr>
+          <!--parte refernte a listagem-->
+          <c:forEach items="${receitaList}" var="receita">
+             
+
+              <tr>
+                  <td>${receita.id}</td>
+                  <td>${receita.titulo}</td>
+
+                  
+
+              </tr>
+          </c:forEach>
+      </table>
+      <%--fim da lista de itens--%>
         </div>
-         <%--fim da lista de itens--%>
-       
     </body>
 </html>

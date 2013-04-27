@@ -6,8 +6,12 @@
 package pt.ulht.es.cookbook.dao;
 
 import java.util.List;
+import javax.annotation.Resource;
+import javax.inject.Inject;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 //importar as classes das camadas inferiores
@@ -19,18 +23,19 @@ public class ReceitaDaoImpl implements ReceitaDao {
 
     @Autowired // Isto é usado para que haja um fio automatico de dependência do ReceitaDaoImpl na SessionFactory.
     private SessionFactory session;
+    
     @Override
-    public void add(Receita receita) {
+    public void addReceita(Receita receita) {
             session.getCurrentSession().save(receita);
     }
 
     @Override
-    public void edit(Receita receita) {
-          session.getCurrentSession().saveOrUpdate(receita);//mudar de futuro mudar para salve nova versão
+    public void editReceita(Receita receita) {
+          session.getCurrentSession().update(receita);//mudar de futuro mudar para salve nova versão
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteReceita(int id) {
          session.getCurrentSession().delete(getReceita(id));
     }
 
@@ -40,7 +45,7 @@ public class ReceitaDaoImpl implements ReceitaDao {
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    @Override 
     public List getAllReceita() {
         return session.getCurrentSession().createQuery("from Receita").list();//faz uma query a DB
         //throw new UnsupportedOperationException("Not supported yet.");

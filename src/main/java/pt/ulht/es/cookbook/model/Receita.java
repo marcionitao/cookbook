@@ -6,9 +6,11 @@
 package pt.ulht.es.cookbook.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity //informa ao Hibernate que esta classe representa um objeto que pode persistir.
+@Table(name="RECEITA")
 public class Receita implements Serializable {
 
     @Id
@@ -24,12 +26,13 @@ public class Receita implements Serializable {
     @Column
     private String autor;
     @Column
-    private String rec_criada;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date rec_criada;
     
     public Receita(){}
     
     public Receita(int id, String titulo, String desc_prob, String desc_soluc, 
-            String autor, String rec_criada) {
+            String autor, Date rec_criada) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -71,11 +74,11 @@ public class Receita implements Serializable {
         this.id = id;
     }
 
-    public String getRec_criada() {
+    public Date getRec_criada() {
         return rec_criada;
     }
 
-    public void setRec_criada(String rec_criada) {
+    public void setRec_criada(Date rec_criada) {
         this.rec_criada = rec_criada;
     }
 

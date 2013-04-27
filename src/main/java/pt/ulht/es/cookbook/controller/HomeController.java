@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
     
-  
+    
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String showHome(Model model) {
 
@@ -24,4 +24,5 @@ public class HomeController {
 		return "home";
 	}
 
+ 
 }

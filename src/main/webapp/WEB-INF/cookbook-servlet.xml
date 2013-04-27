@@ -3,20 +3,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-        http://www.springframework.org/schema/beans 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
   
-    
-      <!--Activa o uso de Annotation-->	
+   <!--Activa o uso de Annotation-->
+    <mvc:annotation-driven />
+    <!-- Activates scanning of @Autowired -->
     <context:annotation-config />   
-    <!--Define o pacote que estamos trabalhar-->	
-    <context:component-scan base-package="pt.ulht.es.cookbook.controller"/>
+    <!-- Activates scanning of @Repository and @Service -->
+    <context:component-scan base-package="pt.ulht.es.cookbook"/>
+    
+    
       
     <!-- Serve pedidos HTTP GET para /static/** de forma eficiente para recursos estáticos na pasta webapp/resources -->
     <mvc:resources mapping="/resources/**" location="/resources/" /> 
@@ -68,16 +77,19 @@
         pasta e sufixo atribuído. Jsp para ele.
     -->
     
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
     
-    <!--Activa o uso de Annotation-->
-    <mvc:annotation-driven />
-  
-  <!--transactionManager bean - Usamos hibernate gerenciador de transações para 
+    <!--O namespace tx: é responsável por tratar as nossas transações de banco de dados. 
+    Usando o elemento tx:annotation-driven, estamos a dizer ao Spring para olhar o bean 
+    anotados com @Transactional  e tratá-los de acordo com os parâmetros definidos nessas anotações.  -->
+    <tx:annotation-driven />
+    
+    
+    <!--transactionManager bean - Usamos hibernate gerenciador de transações para 
     gerenciar as transações de nosso aplicativo gerenciador de studantes.-->
     
     <bean id="transactionManager"
