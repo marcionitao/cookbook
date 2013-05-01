@@ -1,7 +1,7 @@
 <ul class="nav nav-pills pull-left">
     <li id="menu-home" class="menu-button"><a href="/">Home</a></li>
-    <li id="menu-nova-receita"  class="menu-button"><a href="novaReceita.html">Criar Receita</a></li>
-    <li id="menu-listar-receita" class="menu-button"><a href="listarReceita.html">Listar Receitas</a></li>
+    <li id="menu-nova-receita"  class="menu-button"><a href="/novaReceita.html">Criar Receita</a></li>
+    <li id="menu-listar-receita" class="menu-button"><a href="/listarReceita.html">Listar Receitas</a></li>
 </ul>
 
 

@@ -25,8 +25,14 @@
                 </ul>
                 <h3 class="muted">My CookBook</h3>
                 
-                 <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
-                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
+                <%-- aqui, chama o ficheiro jsp que contem os links do menu --%>
+                <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
+
+                <%-- aqui, torna activo apenas a opção "Editar Receitas" na barra de menu, e quero que mostre apenas aqui--%>
+                 <ul class="nav nav-pills pull-left">
+                     <li id="menu-editar-receita" class="active"><a href="#">Editar Receitas</a></li>
+                 </ul>
+       
                 
             </div> 
              <%--fim do cabeçalho--%>
@@ -38,10 +44,15 @@
 
             <%--inicio do formulario--%>
 
-            <legend>Criar nova Receita</legend>  
-            <form:form action="novaReceita.do" method="POST" commandName="receita">
+            <legend>Editar Receita</legend>  
+            <c:url var="url" value="/receita/${receita.id}" />   
+            <form:form action="${url}" method="PUT" commandName="receita">
                 <table width=80% >
 
+                    <tr>
+                        <td><strong>ID Receita </strong></td>
+                        <td><form:input path="id" class="input-xlarge"/></td>
+                    </tr>
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
                         <td><form:input path="titulo" class="input-xlarge"/></td>
@@ -60,6 +71,10 @@
                         <td><strong>Autor da Receita </strong></td>
                         <td><form:input path="autor" class="input-xlarge"/></td>
                     </tr>    
+                    <tr>
+                        <td><strong>Data de criação da Receita </strong></td>
+                        <td><form:input path="rec_criada" class="input-xlarge"/></td>
+                    </tr>    
 
                     <tr>
                         <td>
@@ -72,7 +87,8 @@
                     </tr>
 
                 </table>
-
+                    
+                    <form:hidden path="id"/>
             </form:form>
 
 

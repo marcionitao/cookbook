@@ -14,6 +14,7 @@ public class RecipeController {
     @Autowired
     private ReceitaService receitaService;    
   
+    //metodo para listar as receitas
     @RequestMapping(method=RequestMethod.GET, value="/listarReceita")
     public String listRecipes(Map<String, Object> map) {
 
@@ -54,8 +55,9 @@ public class RecipeController {
         return "listRecipes";
 
     }
-
-    @RequestMapping(value = "/receita/{id}/form", method = RequestMethod.GET)
+    //metodo para criar o form editar receita
+  
+    @RequestMapping(value = "/receita/{id}/form")
     public String editForm(@PathVariable("id") int id, Map<String, Object> map) {
    
         map.put("receita", receitaService.getReceita(id));
@@ -63,20 +65,18 @@ public class RecipeController {
         return "updateRecipes";
 
     }
-
+ /*
     @RequestMapping(method = RequestMethod.PUT)
-    public String update(@ModelAttribute("receita") Receita receita) {
+    public String update(@ModelAttribute("receita") Receita receita, @RequestParam String action) {
 
-     receitaService.editReceita(receita);
+        if (action.equals("add")) {
 
-        return "listRecipes";
-
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/recipes/{id}")
-    public String showRecipe(@ModelAttribute Receita receita, BindingResult result, @RequestParam String action, Map<String, Object> map) {
+            receitaService.editReceita(receita);
+        }
 
         return "listRecipes";
 
     }
+*/
+   
 }
