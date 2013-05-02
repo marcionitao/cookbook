@@ -65,6 +65,7 @@ public class RecipeController {
         return "updateRecipes";
 
     }
+    //acção de editar as receitas
  /*
     @RequestMapping(method = RequestMethod.PUT)
     public String update(@ModelAttribute("receita") Receita receita, @RequestParam String action) {
@@ -74,9 +75,19 @@ public class RecipeController {
             receitaService.editReceita(receita);
         }
 
-        return "listRecipes";
+       return "redirect:/listarReceita";
 
     }
 */
+    //metodo para eliminar a receita
+     @RequestMapping("/delete/{id}")
+    public String deleteContact(@PathVariable("id")int  receitaId) 
+    {
+ 
+        receitaService.deleteReceita(receitaId);
+ 
+        //após eliminar ele redireciona para o listarReceita
+      return "redirect:/listarReceita";
+    }
    
 }

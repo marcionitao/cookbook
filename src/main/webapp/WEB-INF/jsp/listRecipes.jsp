@@ -54,28 +54,30 @@
               <c:url var="url" value="/receita/${receita.id}" />   
 
               <tr>
-                   <form:form action="${url}/form" method="GET">
+                  <form:form action="${url}/form" method="GET">
+
+
+
+                      <td>${receita.id}</td>
+                      <td><a href="<c:url value="/receita/"/>${receita.id}/form">${receita.titulo}</a></td>
+
+
+                  </form:form>
+
 
                  
-         
-                  <td>${receita.id}</td>
-                  <td><a href="<c:url value="/receita/"/>${receita.id}/form">${receita.titulo}</a></td>
-                 
-                  
-                    </form:form>
-                  
-                 
-                   <%--
-                  <td>
-                    
-                      <form:form action="${url}/form" method="GET">
+                 <td>
+                   
+                     <form:form action="${url}" method="DELETE">
 
-                          <input  type="submit" alt="Atualizar Contato"  value="Alterar"/>
+                          
+                          <a href="delete/${receita.id}"><img src="../../resources/img/delete.png"/></a>
+                          
 
                       </form:form>
 
                   </td>
-                   --%>
+              
               </tr>
 
           </c:forEach>
