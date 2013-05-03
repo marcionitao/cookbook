@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
- version="2.5">
- 
- <!--
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>classpath:log4j.xml</param-value>
-    </context-param>
-    
-   <listener>
-		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
- -->
- 
+         version="2.5">
+  
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
-     
-    
-<listener>
-<listener-class>
-com.sun.faces.config.ConfigureListener
-</listener-class>
-</listener>
+    <listener>
+        <listener-class>
+            com.sun.faces.config.ConfigureListener
+        </listener-class>
+    </listener>
  
- 
-      
-        
        
-        
     <servlet>
         <servlet-name>cookbook</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
-              <param-name>contextConfigLocation</param-name>
-              <param-value>/WEB-INF/cookbook-servlet.xml</param-value>
-          </init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/cookbook-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
  
@@ -47,15 +30,14 @@ com.sun.faces.config.ConfigureListener
         <servlet-name>cookbook</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping> 
-    
+     
     <welcome-file-list>
-    <welcome-file>home.html</welcome-file>
-    <welcome-file>home.htm</welcome-file>
-    <welcome-file>home.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-    
+        <welcome-file>home.html</welcome-file>
+        <welcome-file>home.htm</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>   
      
 </web-app>
