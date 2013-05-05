@@ -52,19 +52,19 @@
 
                     <tr>
                         <td><strong>ID Receita </strong></td>
-                        <td><form:input path="id" class="input-xlarge"/></td>
+                        <td><form:input path="id" disabled="true" class="input-small"/></td>
                     </tr>
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
                         <td><form:input path="titulo" class="input-xlarge"/></td>
                     </tr>
                     <tr>
-                        <td><strong>Descrição do problema</strong></td>
+                        <td valign=top><strong>Descrição do problema</strong></td>
                         <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" /></td>
                     </tr>
                     <tr>
 
-                        <td><strong>Descrição da solução</strong></td>
+                        <td valign=top><strong>Descrição da solução</strong></td>
                         <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" /></td>
 
                     </tr>
@@ -74,7 +74,7 @@
                     </tr>    
                     <tr>
                         <td><strong>Data de criação da Receita </strong></td>
-                        <td><form:input path="rec_criada" class="input-xlarge"/></td>
+                        <td><form:input path="rec_criada" class="input-small" disabled="true"/></td>
                     </tr>    
 
                     <tr>

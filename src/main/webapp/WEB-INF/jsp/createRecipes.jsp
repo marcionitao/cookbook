@@ -45,15 +45,15 @@
 
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
-                        <td><form:input path="titulo" class="input-xlarge"/></td>
+                        <td><form:input path="titulo" class="input-xlarge" autofocus="autofocus"/></td>
                     </tr>
                     <tr>
-                        <td><strong>Descrição do problema</strong></td>
+                        <td valign=top><strong>Descrição do problema</strong></td>
                         <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" /></td>
                     </tr>
                     <tr>
 
-                        <td><strong>Descrição da solução</strong></td>
+                        <td valign=top><strong>Descrição da solução</strong></td>
                         <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" /></td>
 
                     </tr>
