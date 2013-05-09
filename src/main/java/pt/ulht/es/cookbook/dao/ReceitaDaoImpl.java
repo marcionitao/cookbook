@@ -47,7 +47,8 @@ public class ReceitaDaoImpl implements ReceitaDao {
 
     @Override 
     public List getAllReceita() {
-        return session.getCurrentSession().createQuery("from Receita").list();//faz uma query a DB
+        //faz uma query a tabela Receita e ordena por ordem alfabetica o titulo da receita
+        return session.getCurrentSession().createQuery("from Receita order by titulo").list();
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 }

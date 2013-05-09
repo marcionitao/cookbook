@@ -45,7 +45,7 @@
 
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
-                        <td><form:input path="titulo" class="input-xlarge"/></td>
+                        <td><form:input path="titulo" onfocus="true" class="input-xlarge"/></td>
                     </tr>
                     <tr>
                         <td valign=top><strong>Descrição do problema</strong></td>

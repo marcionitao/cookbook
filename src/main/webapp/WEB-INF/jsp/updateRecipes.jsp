@@ -52,7 +52,7 @@
 
                     <tr>
                         <td><strong>ID Receita </strong></td>
-                        <td><form:input path="id" class="input-xlarge"/></td>
+                        <td><form:input path="id" class="input-xlarge" disabled="true"/></td>
                     </tr>
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
@@ -74,7 +74,7 @@
                     </tr>    
                     <tr>
                         <td><strong>Data de criação da Receita </strong></td>
-                        <td><form:input path="rec_criada" class="input-xlarge"/></td>
+                        <td><form:input path="rec_criada" class="input-xlarge" disabled="true"/></td>
                     </tr>    
 
                     <tr>
