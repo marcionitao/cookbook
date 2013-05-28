@@ -34,8 +34,7 @@
 
         <br>
         <br>
-        <br>
-        <br>
+     
        
       <%--Inicio da Listagem --%>
 
@@ -65,7 +64,7 @@
 
                   </form:form>
 
-                  <%--url refere-se ao conteudo do id receitas, é uma variavel antes da listagem --%>
+                  <%--url refere-se ao botão para eliminar receita --%>
                   <form:form action="${url}" method="DELETE">
 
                       <%--aqui, definimos um botão "eliminar" para cada receita. --%>

@@ -34,39 +34,43 @@
 
             <br>
             <br>
-            <br>
-            <br>
+           
+           
 
             <%--inicio do formulario--%>
 
             <legend>Criar nova Receita</legend>  
-            <form:form action="novaReceita.do" method="POST" commandName="receita">
+            <form:form action="novaReceita.do" method="POST" commandName="receita" id="form">
                 <table width=80% >
 
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
-                        <td><form:input path="titulo" class="input-xlarge" autofocus="autofocus"/></td>
+                        <td><form:input path="titulo" class="input-xlarge" autofocus="autofocus" id="titulo"/></td>
                     </tr>
                     <tr>
                         <td valign=top><strong>Descrição do problema</strong></td>
-                        <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" /></td>
+                        <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" id="desc_prob" /></td>
                     </tr>
                     <tr>
 
                         <td valign=top><strong>Descrição da solução</strong></td>
-                        <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" /></td>
+                        <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" id="desc_soluc"/></td>
 
                     </tr>
                     <tr>
                         <td><strong>Autor da Receita </strong></td>
-                        <td><form:input path="autor" class="input-xlarge"/></td>
+                        <td><form:input path="autor" class="input-xlarge" id="autor"/></td>
+                    </tr>   
+                     <tr>
+                        <td><strong>Tag</strong></td>
+                        <td><form:input path="tag" class="input-xlarge" id="tag"/></td>
                     </tr>    
 
                     <tr>
                         <td>
                         <td>
                             <!--parte refernte aos botões -->                
-                            <button type="submit" name="action" class="btn nav-pills pull" value="add">Guardar</button>  
+                            <button type="submit" name="action" class="btn nav-pills pull" value="add" id="add">Guardar</button>  
                             <button type="reset" name="action" class="btn nav-pills pull" value="cancel">Cancelar</button>  
                         </td>
 
@@ -75,7 +79,40 @@
                 </table>
 
             </form:form>
-
+            
+            <%--script para validar os campos do lado do cliente --%>
+            <script type="text/javascript">
+                <%--se o botão que se chama 'add' for precionado faça o seguinte: --%>
+                $("#add").click (function()
+                {
+                    if (form.titulo.value=="") {
+                        alert("Preencha o Titulo corretamente.");
+                        form.titulo.focus();
+                        return false;
+                    }
+                    if (form.desc_prob.value=="") {
+                        alert("Preencha a Descrição do problema corretamente.");
+                        form.desc_prob.focus();
+                        return false;
+                    }
+                     if (form.desc_soluc.value=="") {
+                        alert("Preencha a Solução do problema corretamente.");
+                        form.desc_soluc.focus();
+                        return false;
+                    }
+                      if (form.autor.value=="") {
+                        alert("Preencha o autor corretamente.");
+                        form.autor.focus();
+                        return false;
+                    }
+                     if (form.autor.value=="") {
+                        alert("Preencha a Tag corretamente.");
+                        form.tag.focus();
+                        return false;
+                    }
+                });
+                
+            </script>
 
         </div>
     </body>

@@ -5,6 +5,7 @@
     
 <hibernate-configuration>
     <session-factory>        
-        <mapping class="pt.ulht.es.cookbook.model.Receita" />
+         <mapping class="pt.ulht.es.cookbook.model.Receita" />  
+         <mapping class="pt.ulht.es.cookbook.model.Tag" />
     </session-factory>         
 </hibernate-configuration>

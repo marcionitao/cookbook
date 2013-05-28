@@ -9,7 +9,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/aop 
-        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/mvc
@@ -66,10 +66,11 @@
             <props>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>
-    
+
     <!--
         viewResolver bean - Este bean definido ver resolvedor para Spring MVC. 
         Para este bean também definir prefixo como "/ WEB-INF/jsp /" eo sufixo 
@@ -86,9 +87,8 @@
     <!--O namespace tx: é responsável por tratar as nossas transações de banco de dados. 
     Usando o elemento tx:annotation-driven, estamos a dizer ao Spring para olhar o bean 
     anotados com @Transactional  e tratá-los de acordo com os parâmetros definidos nessas anotações.  -->
-    <tx:annotation-driven />
-    
-    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+   
     <!--transactionManager bean - Usamos hibernate gerenciador de transações para 
     gerenciar as transações de nosso aplicativo gerenciador de studantes.-->
     

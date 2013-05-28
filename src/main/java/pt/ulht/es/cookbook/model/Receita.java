@@ -6,15 +6,19 @@
 package pt.ulht.es.cookbook.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 @Entity //informa ao Hibernate que esta classe representa um objeto que pode persistir.
 @Table(name="RECEITA")
 public class Receita implements Serializable {
 
     @Id
-    @Column //anotação é usada para mapear essa propriedade para a coluna nome na tabela de Studants.
+    @Column//anotação é usada para mapear essa propriedade para a coluna nome na tabela de Studants.
     @GeneratedValue(strategy = GenerationType.AUTO) //for autonumber
     private int id;
     @Column
@@ -28,6 +32,20 @@ public class Receita implements Serializable {
     @Column
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date rec_criada;
+    
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="receita_tag", joinColumns={@JoinColumn(name="idReceita")}, 
+                                   inverseJoinColumns={@JoinColumn(name="idTag")})
+    @Cascade(org.hibernate.annotations.CascadeType.ALL) 
+    private Collection<Tag> tag = new ArrayList<Tag>();
+
+    public Collection<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(Collection<Tag> tag) {
+        this.tag = tag;
+    }
     
     public Receita(){}
     

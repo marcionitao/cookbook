@@ -6,17 +6,14 @@
 package pt.ulht.es.cookbook.dao;
 
 import java.util.List;
-import javax.annotation.Resource;
-import javax.inject.Inject;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 //importar as classes das camadas inferiores
-import pt.ulht.es.cookbook.dao.ReceitaDao;
 import pt.ulht.es.cookbook.model.Receita;
+import pt.ulht.es.cookbook.model.Tag;
 
 @Repository
 public class ReceitaDaoImpl implements ReceitaDao {
@@ -26,9 +23,9 @@ public class ReceitaDaoImpl implements ReceitaDao {
     
     @Override
     public void addReceita(Receita receita) {
-            session.getCurrentSession().save(receita);
+           session.getCurrentSession().save(receita);         
     }
-
+    
     @Override
     public void editReceita(Receita receita) {
           session.getCurrentSession().update(receita);//mudar de futuro mudar para salve nova versão
@@ -47,7 +44,8 @@ public class ReceitaDaoImpl implements ReceitaDao {
 
     @Override 
     public List getAllReceita() {
-        return session.getCurrentSession().createQuery("from Receita").list();//faz uma query a DB
+        //faz uma query a tabela Receita e ordena por ordem alfabetica o titulo da receita
+        return session.getCurrentSession().createQuery("from Receita order by titulo").list();
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 }
