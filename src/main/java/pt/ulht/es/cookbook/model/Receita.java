@@ -38,19 +38,23 @@ public class Receita implements Serializable {
                                    inverseJoinColumns={@JoinColumn(name="idTag")})
     @Cascade(org.hibernate.annotations.CascadeType.ALL) 
     private Collection<Tag> tag = new ArrayList<Tag>();
+    
+    @ManyToOne
+    @JoinColumn(name="my")
+    private MyReceitas my;
 
-    public Collection<Tag> getTag() {
-        return tag;
+    public MyReceitas getMy() {
+        return my;
     }
 
-    public void setTag(Collection<Tag> tag) {
-        this.tag = tag;
+    public void setMy(MyReceitas my) {
+        this.my = my;
     }
     
     public Receita(){}
     
     public Receita(int id, String titulo, String desc_prob, String desc_soluc, 
-            String autor, Date rec_criada) {
+            String autor, Date rec_criada, Collection<Tag> tag) { 
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -58,7 +62,17 @@ public class Receita implements Serializable {
 		this.desc_soluc = desc_soluc;
                 this.autor = autor;
                 this.rec_criada = rec_criada;
+                this.tag = tag;
+                
 	}
+    
+    public Collection<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(Collection<Tag> tag) {
+        this.tag = tag;
+    }
 
     public String getAutor() {
         return autor;

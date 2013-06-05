@@ -41,7 +41,7 @@ public class ReceitaDaoImpl implements ReceitaDao {
         return (Receita)session.getCurrentSession().get(Receita.class, id);
         //throw new UnsupportedOperationException("Not supported yet.");
     }
-
+  
     @Override 
     public List getAllReceita() {
         //faz uma query a tabela Receita e ordena por ordem alfabetica o titulo da receita

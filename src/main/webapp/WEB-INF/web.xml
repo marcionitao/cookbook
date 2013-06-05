@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
-  
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -14,8 +14,7 @@
             com.sun.faces.config.ConfigureListener
         </listener-class>
     </listener>
- 
-       
+           
     <servlet>
         <servlet-name>cookbook</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -25,12 +24,12 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
- 
+    
     <servlet-mapping>
         <servlet-name>cookbook</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping> 
-     
+      
     <welcome-file-list>
         <welcome-file>home.html</welcome-file>
         <welcome-file>home.htm</welcome-file>

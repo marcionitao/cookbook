@@ -6,6 +6,7 @@ package pt.ulht.es.cookbook.dao;
 
 import java.util.List;
 import pt.ulht.es.cookbook.model.Receita;
+import pt.ulht.es.cookbook.model.Tag;
 
 public interface ReceitaDao {
 

@@ -44,8 +44,9 @@
             <%--inicio do formulario--%>
 
             <legend>Editar Receita</legend>  
-            <c:url var="url" value="/receita/${receita.id}" />               
-            <form:form action="${url}" method="GET" commandName="receita">
+            
+         <c:url var="url" value="/receita/${receita.id}" />  
+          <form:form action="${url}" method="GET" commandName="receita">
                 <table width=80% >
  
                     <tr>
@@ -74,15 +75,10 @@
                         <td><strong>Data de criação da Receita </strong></td>
                         <td><form:input path="rec_criada" class="input-small" disabled="true"/></td>
                     </tr> 
-                    <tr>
-                        <form:form action="${url}" commandName="tag">
-                        
-                        <td><strong>Tag</strong></td>
-                        <td> <form:input path="tag" disabled="true" class="input-small"/></td>
-                        </form:form>
-                    </tr>
+                 
 
                     <tr>
+                        
                         <td>
                         <td>
                             <!--parte refernte aos botões -->                
@@ -93,9 +89,8 @@
                     </tr>
 
                 </table>
-                    
-                    <form:hidden path="id"/>
-            </form:form>
+                                 
+            </form:form> 
             
         </div>
     </body>

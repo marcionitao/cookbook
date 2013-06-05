@@ -36,10 +36,10 @@ public class RecipeController {
     public String form(ModelMap map) {
         
         Receita receita = new Receita();
-        Tag tag = new Tag();
+      //  Tag tag = new Tag();
         
         map.addAttribute("receita", receita);
-        map.addAttribute("tag",tag);
+        //map.addAttribute("tag",tag);
         map.addAttribute("receitaList", receitaService.getAllReceita());
                
         return "createRecipes";
@@ -50,29 +50,33 @@ public class RecipeController {
     public String createRecipes(@ModelAttribute("Receita") Receita receita, BindingResult resultReceita, 
                                 @ModelAttribute("Tag") Tag tag, BindingResult resultTag, @RequestParam String action, Map<String, Object> map) {
 
-              
+                      
+        String[] tags = tag.getTag().split(",");
         
-        receita.getTag().add(tag);    
+        for(String tagString : tags) {
+            Tag newTag = Tag.fromString(tagService.getAllTag(), tagString);
+            newTag.getReceita().add(receita);
+           // receita.getTag().add(newTag);    
+        }
+        
         receitaService.addReceita(receita);
         //tagService.addTag(tag);
 
-        map.put("receita", receita);
-        map.put("tag",tag);
-        map.put("receitaList", receitaService.getAllReceita());
+       // map.put("tag",tag);
+        //map.put("receitaList", receitaService.getAllReceita());
 
-        return "listRecipes";
+        return "redirect:/listarReceita";
 
     }
+  
     //metodo para criar o form editar receita   
     @RequestMapping(value = "/receita/{id}/form")
     public String editForm(@PathVariable("id") int id, ModelMap map) {
-   
-    
+        
         map.addAttribute("receita", receitaService.getReceita(id));
-        map.addAttribute("tag", tagService.getTag(id+1));
+ 
         return "updateRecipes";
-
-    }   
+    }     
     //acção de editar as receitas
  /*
     @RequestMapping(method = RequestMethod.PUT)
