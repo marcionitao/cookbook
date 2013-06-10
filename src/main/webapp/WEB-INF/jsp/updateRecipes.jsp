@@ -46,12 +46,17 @@
             <legend>Editar Receita</legend>  
             
          <c:url var="url" value="/receita/${receita.id}" />  
-          <form:form action="${url}" method="GET" commandName="receita">
+          <form:form action="${url}" commandName="receita">
                 <table width=80% >
- 
+                    <%--
                     <tr>
-                        <td><strong>ID Receita </strong></td>
+                        <td><strong>ID Versão </strong></td>
                         <td><form:input path="id" disabled="true" class="input-small"/></td>                         
+                    </tr>
+                    --%>
+                     <tr>
+                        <td><strong>ID Receita </strong></td>
+                        <td><form:input path="controle" class="input-small"/></td>                         
                     </tr>
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>

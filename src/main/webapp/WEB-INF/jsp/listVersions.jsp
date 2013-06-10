@@ -26,7 +26,13 @@
                 <h3 class="muted">My CookBook</h3>
                  
                 <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
-                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>      
+                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>   
+                 
+                     <%-- aqui, torna activo apenas a opção "Listar Versoes" na barra de menu, e quero que mostre apenas aqui--%>
+                 <ul class="nav nav-pills pull-left">
+                     <li id="menu-listar-versoe" class="active"><a href="#">Listar Versões</a></li>
+                 </ul>
+       
                  
             </div> 
        
@@ -34,50 +40,64 @@
 
         <br>
         <br>
-     
-       
+                             
       <%--Inicio da Listagem --%>
 
-      <legend>Listar Receitas</legend>  
-      <table width=80% height=20%>
-          <tr>
-
-
-              <td><strong>Id</strong></td>
+      <legend>Listar Versões de Receitas</legend>  
+      <table width=80% height=20% id="table">
+          
+          <tr id="x">    
+              
+              <td><strong>Versão</strong></td>
               <td><strong>Titulo da Receita</strong></td>
-
+              <td><strong>Data da ultima actualização</strong></td>
           </tr>
-
-
+          
           <!--parte refernte a listagem-->
-          <c:forEach items="${receitaList}" var="receita">
-              <c:url var="url" value="/listarReceita/${receita.controle}" />   
-
-              <tr>
-
+                              
+        <c:forEach items="${versoesList}" var="receita">
+              <c:url var="url" value="/receita/${receita.id}" />   
+             <%-- <c:url var="url" value="/listarReceita/${receita.controle}" />   --%>
+             <tr id="y">
+                  
                   <%--url refere-se ao conteudo do id receitas, é uma variavel antes da listagem --%>
-                  <form:form action="${url}/versoes" method="GET">
+                  <form:form action="${url}/form" method="GET">
 
                       <%--aqui, definimos que será mostrado o id e o titulo da receita, mas apenas o titulo é clicavel --%>
-                      <td>${receita.controle}</td>
-                      <td><a href="<c:url value="/listarReceita/"/>${receita.controle}/versoes" title="Mostrar Versões">${receita.titulo}</a></td>
+                            
+                      <%--<td>${receita.id}</td>--%>
+                      <td></td>
+                      <td><a href="<c:url value="/receita/"/>${receita.id}/form" title="Mostrar Receita ao detalhe">${receita.titulo}</a></td>
+                      <td>${receita.rec_criada}</td>                     
+                        
+                  </form:form>
+
+                  <%--url refere-se ao botão para eliminar receita --%>
+                  <form:form action="${url}" method="DELETE">
+
+                      <%--aqui, definimos um botão "eliminar" para cada receita. --%>
+                      <td><a href="/delete/${receita.id}"><img src="../../resources/img/delete.png" title="Apagar Receita"/></a> </td>
 
                   </form:form>
 
-                  <%--url refere-se ao botão para eliminar receita 
-                  <form:form action="${url}" method="DELETE">
-
-                      <%--aqui, definimos um botão "eliminar" para cada receita. 
-                      <td><a href="/delete/${receita.id}"><img src="../../resources/img/delete.png" title="Apagar Receita"/></a> </td>
-
-                  </form:form> --%>
-
-
-              </tr>
-
+              </tr>           
 
           </c:forEach>
       </table>
+      
+      <%-- Faz o controle da numeração das versões--%>
+      <script type="text/javascript">
+          
+          var table = document.getElementsByTagName('table')[0],
+          rows = table.getElementsByTagName('tr'),
+          text = '' in document ? '' : 'innerText';
+          
+          for (var i = 1, len = rows.length; i < len; i++){
+              rows[i].children[1][text] = i + ' ' + rows[i].children[1][text];
+          }
+          
+      </script>
+      
       <%--fim da listagem--%>
         </div>
     </body>

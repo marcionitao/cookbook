@@ -51,4 +51,21 @@ public class ReceitaServiceImpl implements ReceitaService{
         //   throw new UnsupportedOperationException("Not supported yet.");
     }
     
+     @Transactional
+    public List getControle() {
+        return receitaDao.getControle();
+        //   throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+     
+    @Transactional
+    public List getAllControle() {
+        return receitaDao.getAllControle();
+        //   throw new UnsupportedOperationException("Not supported yet.");
+    }
+     @Transactional
+    public List getControle_versao(int controle){
+        return receitaDao.getControle_versao(controle);
+        //   throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

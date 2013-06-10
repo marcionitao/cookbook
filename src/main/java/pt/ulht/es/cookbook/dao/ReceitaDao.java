@@ -21,4 +21,10 @@ public interface ReceitaDao {
     public Receita getReceita(int id);//no futuro usar como pesquisa
 
     public List getAllReceita();//lista as receitas
+    
+    public List getControle();
+    
+    public List getAllControle();
+    
+    public List getControle_versao(int controle);
 }

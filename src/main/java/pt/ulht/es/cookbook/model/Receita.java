@@ -32,29 +32,19 @@ public class Receita implements Serializable {
     @Column
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date rec_criada;
+    @Column
+    private int controle;
     
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="receita_tag", joinColumns={@JoinColumn(name="idReceita")}, 
                                    inverseJoinColumns={@JoinColumn(name="idTag")})
     @Cascade(org.hibernate.annotations.CascadeType.ALL) 
     private Collection<Tag> tag = new ArrayList<Tag>();
-    
-    @ManyToOne
-    @JoinColumn(name="my")
-    private MyReceitas my;
-
-    public MyReceitas getMy() {
-        return my;
-    }
-
-    public void setMy(MyReceitas my) {
-        this.my = my;
-    }
-    
+        
     public Receita(){}
     
     public Receita(int id, String titulo, String desc_prob, String desc_soluc, 
-            String autor, Date rec_criada, Collection<Tag> tag) { 
+            String autor, Date rec_criada, Collection<Tag> tag, int controle) { 
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -63,6 +53,7 @@ public class Receita implements Serializable {
                 this.autor = autor;
                 this.rec_criada = rec_criada;
                 this.tag = tag;
+                this.controle = controle;
                 
 	}
     
@@ -120,6 +111,14 @@ public class Receita implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+     public int getControle() {
+        return controle;
+    }
+
+    public void setControle(int controle) {
+        this.controle = controle;
     }
     
     

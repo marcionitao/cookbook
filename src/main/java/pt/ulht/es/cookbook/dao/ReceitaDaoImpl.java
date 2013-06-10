@@ -48,4 +48,19 @@ public class ReceitaDaoImpl implements ReceitaDao {
         return session.getCurrentSession().createQuery("from Receita order by titulo").list();
         //throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    public List getControle(){
+        
+         return session.getCurrentSession().createQuery("select r.controle from Receita r order by r.controle").list();
+    }
+     
+    public List getAllControle(){
+        
+         return session.getCurrentSession().createQuery("from Receita group by controle").list();
+    }
+    public List getControle_versao(int controle){
+        
+         return (List) session.getCurrentSession().createQuery("FROM Receita WHERE controle = "+controle+" ORDER BY titulo").list();
+    }
+     
 }
