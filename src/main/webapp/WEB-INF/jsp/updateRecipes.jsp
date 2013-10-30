@@ -24,29 +24,29 @@
                             <input type="text" class="search-query" placeholder="Procura">
                         </form></li>
                 </ul>
-                <h3 class="muted">My CookBook</h3>
-                
+                <h3 class="muted" style="color: orange">My CookBook</h3>
+
                 <%-- aqui, chama o ficheiro jsp que contem os links do menu --%>
                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
 
                 <%-- aqui, torna activo apenas a opção "Editar Receitas" na barra de menu, e quero que mostre apenas aqui--%>
-                 <ul class="nav nav-pills pull-left">
-                     <li id="menu-editar-receita" class="active"><a href="#">Editar Receitas</a></li>
-                 </ul>
-       
-                
+                <ul class="nav nav-pills pull-left">
+                    <li id="menu-editar-receita" class="active"><a href="#">Editar Receitas</a></li>
+                </ul>
+
+
             </div> 
-             <%--fim do cabeçalho--%>
+            <%--fim do cabeçalho--%>
 
             <br>
             <br>
-           
+
             <%--inicio do formulario--%>
 
-            <legend>Editar Receita</legend>  
-            
-         <c:url var="url" value="/receita/${receita.id}" />  
-          <form:form action="${url}" commandName="receita">
+            <h4>Editar Receita</h4>  
+
+            <c:url var="url" value="/receita/${receita.id}" />  
+            <form:form action="${url}" method="GET" commandName="receita">
                 <table width=80% >
                     <%--
                     <tr>
@@ -54,7 +54,7 @@
                         <td><form:input path="id" disabled="true" class="input-small"/></td>                         
                     </tr>
                     --%>
-                     <tr>
+                    <tr>
                         <td><strong>ID Receita </strong></td>
                         <td><form:input path="controle" class="input-small"/></td>                         
                     </tr>
@@ -75,28 +75,29 @@
                     <tr>
                         <td><strong>Autor da Receita </strong></td>
                         <td><form:input path="autor" class="input-xlarge"/></td>
-                    </tr>    
+
                     <tr>
                         <td><strong>Data de criação da Receita </strong></td>
                         <td><form:input path="rec_criada" class="input-small" disabled="true"/></td>
                     </tr> 
-                 
+
 
                     <tr>
-                        
+
                         <td>
                         <td>
                             <!--parte refernte aos botões -->                
                             <button type="submit" name="action" class="btn nav-pills pull" value="add">Guardar</button>  
-                            <button type="reset" name="action" class="btn nav-pills pull" value="cancel">Cancelar</button>  
+
                         </td>
 
                     </tr>
 
                 </table>
-                                 
+
             </form:form> 
-            
+
         </div>
+             <div class="modal-footer">My Cookbook Inc.</div>
     </body>
 </html>

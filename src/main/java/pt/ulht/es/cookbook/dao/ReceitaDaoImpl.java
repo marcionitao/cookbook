@@ -36,12 +36,20 @@ public class ReceitaDaoImpl implements ReceitaDao {
          session.getCurrentSession().delete(getReceita(id));
     }
 
-    @Override
+   /* @Override
     public Receita getReceita(int id) {
         return (Receita)session.getCurrentSession().get(Receita.class, id);
         //throw new UnsupportedOperationException("Not supported yet.");
-    }
-  
+    }*/   
+    
+    @Override
+    public Receita getReceita(int id) {
+         
+       // return (Receita) session.getCurrentSession().createQuery("from Receita r join r.tag t where r.id="+id+"=:id");
+        //throw new UnsupportedOperationException("Not supported yet.");
+         return (Receita)session.getCurrentSession().get(Receita.class, id);
+    }   
+    
     @Override 
     public List getAllReceita() {
         //faz uma query a tabela Receita e ordena por ordem alfabetica o titulo da receita

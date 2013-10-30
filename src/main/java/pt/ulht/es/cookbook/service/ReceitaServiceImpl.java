@@ -42,7 +42,6 @@ public class ReceitaServiceImpl implements ReceitaService{
     @Transactional
     public Receita getReceita(int id) {
          return receitaDao.getReceita(id);
-       //    throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Transactional

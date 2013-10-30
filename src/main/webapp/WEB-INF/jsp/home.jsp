@@ -13,36 +13,38 @@
         <title>CookBook</title>
     </head>
     <body>  
-         <%--inicio do cabeçalho--%>
+        <%--inicio do cabeçalho--%>
         <div class="container-narrow">
 
             <div class="masthead">
                 <ul class="nav nav-pills pull-right">
 
-                    <li> <form class="navbar-search pull-left">
+                    <li> 
+                        <form class="navbar-search pull-left">
                             <input type="text" class="search-query" placeholder="Procura">
-                        </form></li>
+                        </form>
+                    </li>
                 </ul>
-                <h3 class="muted">My CookBook</h3>
-                
+                <h3 class="muted" style="color: orange">My CookBook</h3>
+
                 <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>
                 <%@include file="/WEB-INF/jsp/common/menu.jsp" %>
 
             </div>
-             <%--fim do cabeçalho--%>
+            <%--fim do cabeçalho--%>
 
             <br>
             <br>
             <br>
-            <br>
+          
 
         </div>
-             
-         <%--inicio da imagem--%>     
+
+        <%--inicio da imagem--%>     
         <div class="container" align="center">
-            
-            <legend>Seja Bem vindo ao My CookBook Repositório Git</legend>  
-            
+
+            <h4>My CookBook - Utilização básica do HTML</h4>  
+
             <img src="../../resources/cookbook-color1.JPG" align="center">
             <br>
             <br>
@@ -50,6 +52,9 @@
 
         </div> 
         <%--fim da imagem--%>
+        
+        <div class="modal-footer">My Cookbook Inc.</div>
 
     </body>
+  
 </html>

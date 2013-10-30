@@ -97,7 +97,7 @@ public class RecipeController {
 
     }
   
-    //metodo para criar o form editar receita   
+    //metodo para criar o form mostrar e editar a receita   
     @RequestMapping(value = "/receita/{id}/form", method = RequestMethod.GET)
     public String editForm(@PathVariable("id") int id, ModelMap map) {
                      
@@ -118,7 +118,7 @@ public class RecipeController {
 
     //metodo para eliminar a receita
      @RequestMapping("/delete/{id}")
-    public String deleteContact(@PathVariable("id")int  receitaId) 
+    public String deleteReceita(@PathVariable("id")int  receitaId) 
     {
         //chama o metodo e passa o valor do id do registo a ser eliminado
         receitaService.deleteReceita(receitaId);
