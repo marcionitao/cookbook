@@ -18,7 +18,7 @@ import pt.ulht.es.cookbook.service.TagService;
 @Table(name="TAG")
 public class Tag implements Serializable{
     
-    public static Tag fromString(Collection<Tag> tagCollection, String tagString) {
+  /*  public static Tag fromString(Collection<Tag> tagCollection, String tagString) {
         for(Tag tag : tagCollection) {
             System.out.println("Now comparing "+tag.getTag()+" with "+tagString);
             if(tag.getTag().equals(tagString)) {
@@ -27,7 +27,7 @@ public class Tag implements Serializable{
             }
         }
         return new Tag(tagString);
-    }
+    }*/
     
     @Id
     @Column//anotação é usada para mapear essa propriedade para a coluna nome na tabela de Studants.
@@ -36,7 +36,7 @@ public class Tag implements Serializable{
     @Column
     private String tag;
     
-    @ManyToMany(fetch=FetchType.LAZY, mappedBy = "tag")
+    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "tag")
     @JoinTable(name="receita_tag", joinColumns={@JoinColumn(name="idTag")}, 
                                    inverseJoinColumns={@JoinColumn(name="idReceita")})
     @Cascade(org.hibernate.annotations.CascadeType.ALL) 

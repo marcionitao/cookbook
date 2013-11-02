@@ -35,7 +35,7 @@ public class Receita implements Serializable {
     @Column
     private int controle;
     
-    @ManyToMany(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name="receita_tag", joinColumns={@JoinColumn(name="idReceita")}, 
                                    inverseJoinColumns={@JoinColumn(name="idTag")})
     @Cascade(org.hibernate.annotations.CascadeType.ALL) 

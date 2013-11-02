@@ -45,23 +45,30 @@
 
             <h4>Editar Receita</h4>  
 
-            <c:url var="url" value="/receita/${receita.id}" />  
-            <form:form action="${url}" method="GET" commandName="receita">
+            <%-- <c:url var="url" value="/receita/${receita.id}" />  --%>
+            <form:form action="/receita/${receita.id}" method="GET" commandName="receita">
                 <table width=80% >
                     <%--
                     <tr>
                         <td><strong>ID Versão </strong></td>
                         <td><form:input path="id" disabled="true" class="input-small"/></td>                         
                     </tr>
-                    --%>
+                      --%>
                     <tr>
                         <td><strong>ID Receita </strong></td>
                         <td><form:input path="controle" class="input-small"/></td>                         
                     </tr>
+                  
                     <tr>
                         <td><strong>Titulo da Receita </strong></td>
                         <td><form:input path="titulo" class="input-xlarge"/></td>
                     </tr>
+                    
+                     <tr>
+                        <td><strong>Tags </strong></td>
+                        <td><form:input path="tag" value="${tagString}" class="input-xlarge"/></td>
+                    </tr>
+                    
                     <tr>
                         <td valign=top><strong>Descrição do problema</strong></td>
                         <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" /></td>
