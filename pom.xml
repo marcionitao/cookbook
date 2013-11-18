@@ -1,8 +1,7 @@
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-        
+
     <groupId>pt.ulht.es</groupId>
     <artifactId>cookbook</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -13,10 +12,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.org.mortbay.jetty.jetty.maven.plugin>8.1.8.v20121106</version.org.mortbay.jetty.jetty.maven.plugin>
-        <version.org.springframework.spring.webmvc>3.2.1.RELEASE</version.org.springframework.spring.webmvc>
-        <version.org.springframework.spring.core>3.2.1.RELEASE</version.org.springframework.spring.core>
-        <version.org.springframework.spring.context>3.2.1.RELEASE</version.org.springframework.spring.context>
-        <version.org.springframework.spring.web>3.2.1.RELEASE</version.org.springframework.spring.web>
+        <version.org.springframework.spring.webmvc>4.0.3.RELEASE</version.org.springframework.spring.webmvc>
+        <version.org.springframework.spring.core>4.0.3.RELEASE</version.org.springframework.spring.core>
+        <version.org.springframework.spring.context>4.0.3.RELEASE</version.org.springframework.spring.context>
+        <version.org.springframework.spring.web>4.0.3.RELEASE</version.org.springframework.spring.web>
         <version.javax.servlet.jstl>1.2</version.javax.servlet.jstl>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
     </properties>
@@ -44,7 +43,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${version.org.springframework.spring.webmvc}</version>
         </dependency>
-       
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -69,35 +68,77 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>3.2.1.RELEASE</version>
+            <version>4.0.3.RELEASE</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>3.2.1.RELEASE</version>
+            <version>4.0.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.2.1.RELEASE</version>
+            <version>4.0.3.RELEASE</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>3.2.1.RELEASE</version>
+            <version>4.0.3.RELEASE</version>
         </dependency>
-        
-         <!--jstl-->
-        
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-support</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+
+        <!--Jasper Reports-->
+
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.7</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--jstl-->
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>${version.javax.servlet.jstl}</version>
         </dependency>
-        
-         <!--hibernate resources-->
+
+        <!--hibernate resources-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -142,10 +183,10 @@
                     <artifactId>jta</artifactId>
                     <groupId>javax.transaction</groupId>
                 </exclusion>
-             <exclusion>
-              <artifactId>commons-collections</artifactId>
-              <groupId>commons-collections</groupId>
-             </exclusion>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -163,14 +204,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
-         
-         <!-- MySQL -->
+
+        <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-        
+
         <!-- Log4j -->
         <dependency>
             <groupId>log4j</groupId>
@@ -179,49 +220,49 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>20030825.184428</version>
         </dependency>
- 
+
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
- 
+
         <dependency>
             <groupId>commons-pool</groupId>
             <artifactId>commons-pool</artifactId>
             <version>20030825.183949</version>
         </dependency>
- 
+
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.3.0</version>
         </dependency>
- 
+
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>2.0.3</version>
         </dependency>
-  
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
             <version>2.1.1-b04</version>
         </dependency>
- 
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>2.1.1-b04</version>
         </dependency>
- 
+
         <dependency>
             <artifactId>hibernate</artifactId>
             <groupId>org.hibernate</groupId>
@@ -236,38 +277,43 @@
                     <artifactId>jta</artifactId>
                     <groupId>javax.transaction</groupId>
                 </exclusion>
-             <exclusion>
-              <artifactId>commons-collections</artifactId>
-              <groupId>commons-collections</groupId>
-             </exclusion>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
- 
+
         <dependency>
             <artifactId>commons-logging</artifactId>
             <groupId>commons-logging</groupId>
             <type>jar</type>
             <version>1.1.1</version>
         </dependency>
- 
+
         <dependency>
             <artifactId>jta</artifactId>
             <groupId>javax.transaction</groupId>
             <type>jar</type>
             <version>1.1</version>
         </dependency>
-     <dependency>
-      <artifactId>commons-collections</artifactId>
-      <groupId>commons-collections</groupId>
-      <type>jar</type>
-      <version>3.1</version>
-     </dependency>
-     <dependency>
+        <dependency>
+            <artifactId>commons-collections</artifactId>
+            <groupId>commons-collections</groupId>
+            <type>jar</type>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
-  
+
     </dependencies>
 </project>
