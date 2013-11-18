@@ -88,16 +88,26 @@
 
             <%-- Faz o controle da numeração das versões--%>
             <script type="text/javascript">
-          
-                var table = document.getElementsByTagName("table")[0];
+                
+              /*  var table = document.getElementsByTagName("table")[0];
                 rows = table.getElementsByTagName("tr");
                 text = "" in document ? "" : "innerText";
-               
+                
                 for (var i = 1, len = rows.length; i < len; i++){
                     rows[i].children[1][text] = i + '' + rows[i].children[1][text];
+                }*/
+                
+                var table = document.getElementsByTagName('table')[0],
+                rows = table.getElementsByTagName('tr'),
+                text = 'textContent' in document ? 'textContent' : 'innerText';
+                
+                for (var i = 1, len = rows.length; i < len; i++){
+                    rows[i].children[1][text] = i + ' ' + rows[i].children[1][text];
                 }
-          
+                
             </script>
+            
+            
 
             <%--fim da listagem--%>
         </div>

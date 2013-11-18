@@ -23,13 +23,13 @@ public class Receita implements Serializable {
     private int id;
     @Column
     private String titulo;
-    @Column
+    @Column(length = 300)
     private String desc_prob;
-    @Column
+    @Column(length = 500)
     private String desc_soluc;
     @Column
     private String autor;
-    @Column
+    @Column(name = "rec_criada", nullable = true, columnDefinition = "TIMESTAMP default 0")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date rec_criada;
     @Column
