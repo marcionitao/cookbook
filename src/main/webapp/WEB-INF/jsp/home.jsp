@@ -10,7 +10,7 @@
         <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>     
         <%@include file="/WEB-INF/jsp/common/libs.jsp" %>     
 
-        <title>CookBook</title>
+        <title>My CookBook</title>
     </head>
     <body>  
         <%--inicio do cabeçalho--%>
