@@ -37,6 +37,19 @@
             <name>Repository for library Library[eclipselink]</name>
         </repository>
     </repositories>
+
+    <!-- SCM and CONTINUOUS INTEGRATION URLS -->
+    <scm>
+        <url>https://github.com/marcionitao/cookbook.git/</url>
+        <connection>SSL</connection>
+        <developerConnection>scm:git:https://github.com/marcionitao/cookbook.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <ciManagement>
+        <url>https://travis-ci.org/marcionitao/cookbook</url>
+        <system>Travis</system>
+    </ciManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
