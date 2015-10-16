@@ -21,17 +21,15 @@ public class ReceitaDaoImpl implements ReceitaDao {
     @Autowired // Isto é usado para que haja um fio automatico de dependência do ReceitaDaoImpl na SessionFactory.
     private SessionFactory session;
     
-    @Override
+
     public void addReceita(Receita receita) {
            session.getCurrentSession().save(receita);         
     }
-    
-    @Override
+
     public void editReceita(Receita receita) {
           session.getCurrentSession().update(receita);//mudar de futuro mudar para salve nova versão
     }
 
-    @Override
     public void deleteReceita(int id) {
          session.getCurrentSession().delete(getReceita(id));
     }
@@ -41,8 +39,7 @@ public class ReceitaDaoImpl implements ReceitaDao {
         return (Receita)session.getCurrentSession().get(Receita.class, id);
         //throw new UnsupportedOperationException("Not supported yet.");
     }*/   
-    
-    @Override
+
     public Receita getReceita(int id) {
          
        // return (Receita) session.getCurrentSession().createQuery("from Receita r join r.tag t where r.id="+id+"=:id");
@@ -50,7 +47,7 @@ public class ReceitaDaoImpl implements ReceitaDao {
          return (Receita)session.getCurrentSession().get(Receita.class, id);
     }   
     
-    @Override 
+
     public List getAllReceita() {
         //faz uma query a tabela Receita e ordena por ordem alfabetica o titulo da receita
         return session.getCurrentSession().createQuery("from Receita order by titulo").list();

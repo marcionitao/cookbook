@@ -67,6 +67,34 @@
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.8" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-annotations:3.3.1.GA" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-search-engine:4.3.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-search-analyzers:4.3.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-analysis-extras:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-core:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-solrj:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-highlighter:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-kuromoji:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-memory:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-misc:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-phonetic:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-spatial:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-spellchecker:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-grouping:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-smartcn:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-stempel:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.avro:avro:1.6.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.8.8" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.8.8" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.paranamer:paranamer:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.0.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-facet:3.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-search-orm:4.3.0.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.14" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:20030825.184428" level="project" />

@@ -18,14 +18,7 @@
 <div class="container-narrow">
 
     <div class="masthead">
-        <ul class="nav nav-pills pull-right">
 
-            <li>
-                <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="Procura">
-                </form>
-            </li>
-        </ul>
         <h3 class="muted" style="color: orange">My CookBook</h3>
 
         <%-- aqui, chama o ficheiro jsp que contem os links do menu--%>

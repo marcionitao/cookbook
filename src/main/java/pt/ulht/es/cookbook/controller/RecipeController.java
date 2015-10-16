@@ -5,8 +5,8 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pt.ulht.es.cookbook.model.Receita;
 import pt.ulht.es.cookbook.model.Tag;
 import pt.ulht.es.cookbook.service.ReceitaService;
@@ -17,6 +17,7 @@ public class RecipeController {
 
     @Autowired
     private ReceitaService receitaService;
+
     @Autowired
     private TagService tagService;
     int resultado = 0;
@@ -55,9 +56,7 @@ public class RecipeController {
 
     //metodo para inserir a receita, ou seja, cria-las no BD
     @RequestMapping(value = "/novaReceita.do", method = RequestMethod.POST)
-    public String createRecipes(@ModelAttribute("Receita") Receita receita, BindingResult resultReceita,
-            @ModelAttribute("Tag") Tag tag, BindingResult resultTag, @RequestParam String action, Map<String, Object> map) {
-
+    public String createRecipes(@ModelAttribute("Receita") Receita receita, @ModelAttribute("Tag") Tag tag) {
 
         //estas linhas irão a tabela Receita e itá devolver o valor do ultimo controle inserido, por fim acrescentará mais um
         List lista = new ArrayList();
