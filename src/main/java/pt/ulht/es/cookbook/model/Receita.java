@@ -12,11 +12,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Store;
 
 @Entity //informa ao Hibernate que esta classe representa um objeto que pode persistir.
 @Table(name="RECEITA")
