@@ -10,7 +10,7 @@
         <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>
         <%@include file="/WEB-INF/jsp/common/libs.jsp" %>
 
-        <title>CookBook</title>
+        <title>My CookBook</title>
     </head>
     <body>
         <%--inicio do cabeçalho--%>
@@ -25,7 +25,7 @@
 
                 <%-- aqui, torna activo apenas a opção "Listar Versoes" na barra de menu, e quero que mostre apenas aqui--%>
                 <ul class="nav nav-pills pull-left">
-                    <li id="menu-listar-versoe" class="active"><a href="#">Listar Versões</a></li>
+                    <li id="menu-listar-versoe" class="active"><a href="#">List Version</a></li>
                 </ul>
 
 
@@ -38,15 +38,15 @@
 
             <%--Inicio da Listagem --%>
 
-            <h4 style="align:left">Listar Versões de Receitas</h4>  
+            <h4 style="align:left">List Recipe Version</h4>
             <table class="table">
 
                 <tr id="x" class="info">    
 
-                    <td><strong>Versão</strong></td>
-                    <td><strong>Titulo da Receita</strong></td>
-                    <td><strong>Data da ultima actualização</strong></td>
-                    <td><strong>Ação</strong></td>
+                    <td><strong>Version</strong></td>
+                    <td><strong>Recipe title</strong></td>
+                    <td><strong>Date of last update</strong></td>
+                    <td><strong>Action</strong></td>
                 </tr>
 
                 <!--parte refernte a listagem-->
@@ -61,9 +61,8 @@
 
                             <%--aqui, definimos que será mostrado o id e o titulo da receita, mas apenas o titulo é clicavel --%>
 
-                            <%--<td>${receita.id}</td>--%>
                             <td></td>
-                            <td><a href="<c:url value="/receita/"/>${receita.id}/form" title="Mostrar Receita ao detalhe">${receita.titulo}</a></td>
+                            <td><a href="<c:url value="/receita/"/>${receita.id}/form" title="Show Recipe to detail">${receita.titulo}</a></td>
                             <td>${receita.rec_criada}</td>                     
 
                         </form:form>
@@ -72,7 +71,7 @@
                         <form:form action="${url}" method="DELETE">
 
                             <%--aqui, definimos um botão "eliminar" para cada receita. --%>
-                            <td><a href="/delete/${receita.id}"><img src="../../resources/img/delete.png" title="Apagar Receita"/></a> </td>
+                            <td><a href="/delete/${receita.id}"><img src="../../resources/img/delete.png" title="Delete Recipe"/></a> </td>
 
                         </form:form>
 
@@ -83,15 +82,7 @@
 
             <%-- Faz o controle da numeração das versões--%>
             <script type="text/javascript">
-                
-              /*  var table = document.getElementsByTagName("table")[0];
-                rows = table.getElementsByTagName("tr");
-                text = "" in document ? "" : "innerText";
-                
-                for (var i = 1, len = rows.length; i < len; i++){
-                    rows[i].children[1][text] = i + '' + rows[i].children[1][text];
-                }*/
-                
+
                 var table = document.getElementsByTagName('table')[0],
                 rows = table.getElementsByTagName('tr'),
                 text = 'textContent' in document ? 'textContent' : 'innerText';
@@ -101,8 +92,6 @@
                 }
                 
             </script>
-            
-            
 
             <%--fim da listagem--%>
         </div>

@@ -11,7 +11,7 @@
         <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>
         <%@include file="/WEB-INF/jsp/common/libs.jsp" %>
 
-        <title>CookBook</title>
+        <title>My CookBook</title>
     </head>
     <body>
         <%--inicio do cabeçalho--%>
@@ -34,26 +34,26 @@
 
             <%--inicio do formulario--%>
 
-            <h4>Criar nova Receita</h4>  
+            <h4>Add new Recipes</h4>
             <form:form action="novaReceita.do" method="POST" commandName="receita" id="form">
                 <table width=80% >
 
                     <tr>
-                        <td><strong>Titulo da Receita </strong></td>
+                        <td><strong>Recipe title</strong></td>
                         <td><form:input path="titulo"  class="input-xlarge" autofocus="autofocus" id="titulo"/></td>
                     </tr>
                     <tr>
-                        <td valign=top><strong>Descrição do problema</strong></td>
+                        <td valign=top><strong>Problem description</strong></td>
                         <td><form:textarea path="desc_prob" class="input-xlarge" rows="3" id="desc_prob" /></td>
                     </tr>
                     <tr>
 
-                        <td valign=top><strong>Descrição da solução</strong></td>
+                        <td valign=top><strong>Solution description</strong></td>
                         <td><form:textarea path="desc_soluc" class="input-xlarge" rows="6" id="desc_soluc"/></td>
 
                     </tr>
                     <tr>
-                        <td><strong>Autor da Receita </strong></td>
+                        <td><strong>Recipe Author</strong></td>
                         <td><form:input path="autor" class="input-xlarge" id="autor"/></td>
                     </tr>   
                     <tr>
@@ -65,8 +65,8 @@
                         <td>
                         <td>
                             <!--parte refernte aos botões -->                
-                            <button type="submit" name="action" class="btn btn-success" value="add" id="add">Guardar</button>  
-                            <button type="reset" name="action" class="btn btn-success" value="cancel">Cancelar</button>  
+                            <button type="submit" name="action" class="btn btn-success" value="add" id="add">Save</button>
+                            <button type="reset" name="action" class="btn btn-success" value="cancel">Cancel</button>
                         </td>
 
                     </tr>

@@ -10,7 +10,7 @@
         <%-- aqui, chama o ficheiro jsp que contem os comandos para acessar os CSS e JQuery--%>
         <%@include file="/WEB-INF/jsp/common/libs.jsp" %>
 
-        <title>CookBook</title>
+        <title>My CookBook</title>
     </head>
     <body>
         <%--inicio do cabeçalho--%>
@@ -30,19 +30,16 @@
             <br>
             <br>
 
-
             <%--Inicio da Listagem --%>
 
-            <h4 style="align:right">Listar Receitas</h4>  
+            <h4 style="align:right">List Recipes</h4>
             <table class="table">
                 <tr class="info">
 
-
                     <td><strong>Id</strong></td>
-                    <td><strong>Titulo da Receita</strong></td>
+                    <td><strong>Recipe title</strong></td>
 
                 </tr>
-
 
                 <!--parte refernte a listagem-->
                 <c:forEach items="${receitaList}" var="receita">
@@ -59,17 +56,7 @@
 
                         </form:form>
 
-                        <%--url refere-se ao botão para eliminar receita 
-                        <form:form action="${url}" method="DELETE">
-
-                        <%--aqui, definimos um botão "eliminar" para cada receita. 
-                        <td><a href="/delete/${receita.id}"><img src="../../resources/img/delete.png" title="Apagar Receita"/></a> </td>
-
-                  </form:form> --%>
-
-
                     </tr>
-
 
                 </c:forEach>
             </table>

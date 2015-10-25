@@ -37,7 +37,7 @@
 <%--inicio da imagem--%>
 <div class="container" align="center">
 
-    <h4>My CookBook - Utilização básica do HTML</h4>
+    <h4>My CookBook - The recipe for each problem</h4>
 
     <img src="../../resources/cookbook-color1.JPG" align="center">
     <br>
