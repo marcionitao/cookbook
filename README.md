@@ -10,10 +10,9 @@ have a determiner problem at hand.
 
 Tecnologies:
 
-Back-End - Java EE, Spring MVC
-Server - Tomcat 7
-Data Base - MySQL 5
-Persistence - Hibernate
-Dependence - Maven
-Front-End - JSP, Bootstrap, JQuery
-
++ Back-End - Java EE, Spring MVC
++ Server - Tomcat 7
++ Data Base - MySQL 5
++ Persistence - Hibernate
++ Dependence - Maven
++ Front-End - JSP, Bootstrap, JQuery
