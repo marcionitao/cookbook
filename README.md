@@ -1,4 +1,4 @@
-﻿My Cookbook
+# My Cookbook
 
 [![Build Status](https://travis-ci.org/marcionitao/cookbook.svg?branch=master)](https://travis-ci.org/marcionitao/cookbook)
 
