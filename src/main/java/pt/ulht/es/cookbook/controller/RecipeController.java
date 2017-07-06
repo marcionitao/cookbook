@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import pt.ulht.es.cookbook.model.Receita;
 import pt.ulht.es.cookbook.model.Tag;
 import pt.ulht.es.cookbook.service.ReceitaService;
