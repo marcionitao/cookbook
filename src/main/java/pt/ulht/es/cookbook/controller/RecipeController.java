@@ -23,7 +23,8 @@ public class RecipeController {
     private HashMap<Integer, Tag> tagCache;
 
     //metodo para listar as versões de receitas
-    @RequestMapping(method = RequestMethod.GET, value = "/listarReceita/{controle}/versoes")
+    @RequestMapping(method = RequestMethod.GET, value = "cookbook/listarReceita/{controle}/versoes")
+    //@RequestMapping(method = RequestMethod.GET, value = "/listarReceita/{controle}/versoes")
     public String listVersions(@PathVariable("controle") int controle, Map<String, Object> map) {
 
         map.put("versoesList", receitaService.getControle_versao(controle));
@@ -32,7 +33,8 @@ public class RecipeController {
     }
 
     //metodo para listar as receitas
-    @RequestMapping(method = RequestMethod.GET, value = "/listarReceita")
+    @RequestMapping(method = RequestMethod.GET, value = "cookbook/listarReceita")
+    // @RequestMapping(method = RequestMethod.GET, value = "/listarReceita")
     public String listRecipes(Map<String, Object> map) {
 
         map.put("receitaList", receitaService.getAllControle());
@@ -41,7 +43,8 @@ public class RecipeController {
     }
 
     //metodo que cria o fomulario para criar as receitas
-    @RequestMapping("/novaReceita")
+    @RequestMapping("cookbook/novaReceita")
+    //@RequestMapping("/novaReceita")
     public String form(ModelMap map) {
 
         Receita receita = new Receita();
@@ -54,7 +57,8 @@ public class RecipeController {
     }
 
     //metodo para inserir a receita, ou seja, cria-las no BD
-    @RequestMapping(value = "/novaReceita.do", method = RequestMethod.POST)
+    @RequestMapping(value = "cookbook/novaReceita.do", method = RequestMethod.POST)
+    //@RequestMapping(value = "/novaReceita.do", method = RequestMethod.POST)
     public String createRecipes(@ModelAttribute("Receita") Receita receita, @ModelAttribute("Tag") Tag tag) {
 
         //estas linhas irão a tabela Receita e itá devolver o valor do ultimo controle inserido, por fim acrescentará mais um
@@ -77,11 +81,13 @@ public class RecipeController {
         newTag.getReceita().add(receita);
         receitaService.addReceita(receita);
 
-        return "redirect:/listarReceita";
+        //return "redirect:cookbook/listarReceita";
+        return "redirect:/cookbook/listarReceita";
 
     }
 
     @RequestMapping(value = "/receita/{id}/form", method = RequestMethod.GET)
+    //@RequestMapping(value = "/receita/{id}/form", method = RequestMethod.GET)
     public String editForm(@PathVariable("id") int id, ModelMap map) {
 
         Receita receita = receitaService.getReceita(id);
@@ -100,22 +106,26 @@ public class RecipeController {
     }
 
     //acção de editar as receitas
-    @RequestMapping("/receita/*")
+    @RequestMapping("/receita")
+    // @RequestMapping("/receita/*")
     public String update(@ModelAttribute("receita") Receita receita) {
 
         receitaService.addReceita(receita);
 
-        return "redirect:/listarReceita";
+        return "redirect:/cookbook/listarReceita";
+        //return "redirect:/listarReceita";
 
     }
 
     //metodo para eliminar a receita
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("cookbook/delete/{id}")
+    // @RequestMapping("/delete/{id}")
     public String deleteReceita(@PathVariable("id") int receitaId) {
         //chama o metodo e passa o valor do id do registo a ser eliminado
         receitaService.deleteReceita(receitaId);
 
         //após eliminar ele redireciona para o listarReceita
-        return "redirect:/listarReceita";
+        //return "redirect:cookbook/listarReceita";
+        return "redirect:/cookbook/listarReceita";
     }
 }

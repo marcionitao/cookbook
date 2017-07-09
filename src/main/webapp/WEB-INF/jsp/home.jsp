@@ -39,16 +39,17 @@
 
     <h4>My CookBook - The recipe for each problem</h4>
 
-    <img src="../../resources/cookbook-color1.JPG" align="center">
+    <img src="<c:url value="/resources/cookbook-color1.JPG" />" align="center"/>
     <br>
     <br>
     <h5 class="masthead"> ${currentTime} </h5>
 
 </div>
-<%--fim da imagem--%>
 
-<div class="modal-footer">My Cookbook Inc.</div>
 
 </body>
+<footer>
+	<div class="modal-footer">My Cookbook Inc.</div>
+</footer>
 
 </html>

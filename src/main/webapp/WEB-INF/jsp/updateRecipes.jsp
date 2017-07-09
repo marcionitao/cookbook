@@ -41,7 +41,7 @@
             <h4>Edit Recipe</h4>
 
             <%-- <c:url var="url" value="/receita/${receita.id}" />  --%>
-            <form:form action="/receita/${receita.id}" method="GET" commandName="receita">
+            <form:form action="/cookbook/receita/${receita.id}" method="post" commandName="receita">
                 <table width=80% >
 
                     <tr>
@@ -94,6 +94,9 @@
             </form:form> 
 
         </div>
-             <div class="modal-footer">My Cookbook Inc.</div>
+             
     </body>
+    <footer>
+	<div class="modal-footer">My Cookbook Inc.</div>
+</footer>
 </html>

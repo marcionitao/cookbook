@@ -1,7 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <ul class="nav nav-pills pull-left">
-    <li id="menu-home" class="menu-button"><a href="/">Home</a></li>
-    <li id="menu-nova-receita"  class="menu-button"><a href="/novaReceita.html">Add Recipes</a></li>
-    <li id="menu-listar-receita" class="menu-button"><a href="/listarReceita.html">List Recipes</a></li>
+    <li id="menu-home" class="menu-button"><a href="<c:url value="/"/>">Home</a></li>
+    <li id="menu-nova-receita"  class="menu-button"><a href="<c:url value="/novaReceita.html" />">Add Recipes</a></li>
+    <li id="menu-listar-receita" class="menu-button"><a href="<c:url value="/listarReceita.html"/>">List Recipes</a></li>
+    
 </ul>
 
 

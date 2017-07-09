@@ -110,6 +110,9 @@
             </script>
 
         </div>
-                     <div class="modal-footer">My Cookbook Inc.</div>
+                     
     </body>
+    <footer>
+	<div class="modal-footer">My Cookbook Inc.</div>
+</footer>
 </html>
